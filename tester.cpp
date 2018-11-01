@@ -27,18 +27,16 @@ int main ()
     intList += 30;
     std::cout << "intList.get(2):    " << intList.get(2) << "\t[Expected: 30]" << std::endl;
 
-    int size = intList.size();
-    std::cout << "Size:" << intList.size() << std::endl;
+    std::cout << "Size: " << intList.size() << std::endl;
     std::cout << "\tExpected : [3]" << std::endl;
 
 
-    // intList.remove(0);
-    // std::cout << "intList.remove(0)" << std::endl;
-    // std::cout << "intList.remove(1)" << std::endl;
-    // intList.remove(0);
-    // intList.remove(1);
-    // std::cout << "UdpatedList: " << intList.get(0) << std::endl;
-    // std::cout << "Updated Size: " << size << std::endl;
+    intList.remove(0);
+    std::cout << "intList.remove(0)" << std::endl;
+    std::cout << "intList.remove(1)" << std::endl;
+    intList.remove(1);
+    std::cout << "UdpatedList : " << intList.get(0) << std::endl;
+    std::cout << "Updated Size: " << intList.size() << std::endl;
 
     std::cout << "To Array: " << std::endl;
     std::vector<int> v = intList.toArray();
