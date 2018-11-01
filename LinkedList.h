@@ -3,6 +3,7 @@
 
 #include <list>
 #include <vector>
+#include <iostream>
 
 template <class T>
 class LinkedList
@@ -27,36 +28,37 @@ class LinkedList
 };
 
 template <class T>
-LinkedList::LinkedList() {}
+LinkedList<T>::LinkedList() {}
 
 template <class T>
-LinkedList::LinkedList(const LinkedList<T>& other) {}
+LinkedList<T>::LinkedList(const LinkedList<T>& other) {}
 
 template <class T>
-LinkedList::~LinkedList() {}
+LinkedList<T>::~LinkedList() {}
 
 template <class T>
-void LinkedList::add(T element)
+void LinkedList<T>::add(T element)
 {
   theList.push_back(element);
+  return;
 }
 
 template <class T>
-int LinkedList::size()
+int LinkedList<T>::size() const
 {
   return theList.size();
 }
 
 template <class T>
-T LinkedList::get(int index)
+T LinkedList<T>::get(int index) const
 {
-  try
+  /*try
   {
     if ( index < 0 || theList.size() < index )
     {
       throw "Out of range";
     }
-    list<T>::const_iterator it = theList.begin();
+    auto it = theList.begin();
 
     while (it != theList.begin() + index )
     {
@@ -67,20 +69,22 @@ T LinkedList::get(int index)
   catch(char* str)
   {
     std::cout << "Incorrect index value" << str << std::endl;
-  }
+  }*/
+  T t;
+  return t;
 
 }
 
 template <class T>
-T LinkedList::remove(int index)
+T LinkedList<T>::remove(int index)
 {
-  try
+  /*try
   {
     if ( index < 0 || theList.size() < index )
     {
       throw "Out of range";
     }
-    list<T>::iterator it = theList.begin();
+    std::list<T>::iterator it = theList.begin();
 
     while (it != theList.begin() + index )
     {
@@ -91,28 +95,32 @@ T LinkedList::remove(int index)
   catch(char* str)
   {
     std::cout << "Incorrect index value" << str << std::endl;
-  }
+  }*/
+  T t;
+  return t;
+
 }
 
 template <class T>
-vector<T> LinkedList::toArray()
+std::vector<T> LinkedList<T>::toArray() const
 {
-  vector<T> returnV();
-  list<T>::const_iterator it = theList.begin();
+  std::vector<T> returnV;
+  auto it = theList.begin();
 
   while(it != theList.end())
   {
-    returnV.push_back(it);
+    returnV.push_back(*it);
+    it++;
   }
   return returnV;
 
 }
 
 template <class T>
-LinkedList <T>& LinkedList::operator+=(const T& item)
+LinkedList <T>& LinkedList<T>::operator+=(const T& item)
 {
-  theList.push_back(*item);
-  return this.theList;
+  theList.push_back(item);
+  return &(this->theList);
 }
 
 #endif
