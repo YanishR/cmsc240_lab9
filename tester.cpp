@@ -20,19 +20,24 @@ int main ()
     intList.add(20);
     std::cout << "intList.get(0):    " << intList.get(0) << "[\tExpected: 10]" << std::endl;
     intList.get(0);
-    std::cout << "intList.get(1):    " << intList.get(0) << "[\tExpected: 10]" << std::endl;
+    std::cout << "intList.get(1):    " << intList.get(0) << "[\tExpected: 20]" << std::endl;
     intList.get(1);
     intList += 30;
-    // std::cout << "intList += 30:    " << intList += 30 << "[\tExpected: 30]" << std::endl;
+    //std::cout << "intList += 30:    " << intList += 30 << "[\tExpected: 30]" << std::endl;
     intList.get(2);
 
 
     int size = intList.size();
     std::cout << "Size: " << size << std::endl;
-    std::cout << "\tExpected : [2]" << std::endl;
+    std::cout << "\tExpected : [3]" << std::endl;
 
+    std::cout << "intList.remove(0)" << std::endl;
+    std::cout << "intList.remove(1)" << std::endl;
+    intList.remove(0);
+    intList.remove(1);
+    std::cout << "UdpatedList: " << intList.get(0) << std::endl;
+    std::cout << "Updated Size: " << size << std::endl;
 
-    //intList.remove(0);
 
     //std::cout << "Size:" << intList.size() << std::endl;
     //std::cout << "\tExpected: [1]" << std::endl;*/
