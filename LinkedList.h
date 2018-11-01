@@ -52,16 +52,17 @@ int LinkedList<T>::size() const
 template <class T>
 T LinkedList<T>::get(int index) const
 {
-  /*try
+  try
   {
     if ( index < 0 || theList.size() < index )
     {
       throw "Out of range";
     }
     auto it = theList.begin();
-
-    while (it != theList.begin() + index )
+    int count = 0;
+    while (count < index)
     {
+      count++;
       it++;
     }
     return *it;
@@ -69,7 +70,7 @@ T LinkedList<T>::get(int index) const
   catch(char* str)
   {
     std::cout << "Incorrect index value" << str << std::endl;
-  }*/
+  }
   T t;
   return t;
 
@@ -78,24 +79,28 @@ T LinkedList<T>::get(int index) const
 template <class T>
 T LinkedList<T>::remove(int index)
 {
-  /*try
+  try
   {
     if ( index < 0 || theList.size() < index )
     {
       throw "Out of range";
     }
-    std::list<T>::iterator it = theList.begin();
+    T returnValue = this->get(index);
+    auto it = theList.begin();
+    int count = 0;
 
-    while (it != theList.begin() + index )
+    while (count < index)
     {
+      count++;
       it++;
     }
-    return theList.erase(it);
+    theList.erase(it);
+    return returnValue;
   }
   catch(char* str)
   {
     std::cout << "Incorrect index value" << str << std::endl;
-  }*/
+  }
   T t;
   return t;
 

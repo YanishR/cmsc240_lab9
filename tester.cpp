@@ -18,14 +18,13 @@ int main ()
     intList.add(10);
     std::cout << "intList.add(20)" << std::endl;
     intList.add(20);
-    std::cout << "intList.get(0):    " << intList.get(0) << "[\tExpected: 10]" << std::endl;
+    std::cout << "intList.get(0):    " << intList.get(0) << "\t[Expected: 10]" << std::endl;
     intList.get(0);
-    std::cout << "intList.get(1):    " << intList.get(0) << "[\tExpected: 10]" << std::endl;
-    intList.get(1);
+    std::cout << "intList.get(1):    " << intList.get(1) << "\t[Expected: 20]" << std::endl;
     intList += 30;
     // std::cout << "intList += 30:    " << intList += 30 << "[\tExpected: 30]" << std::endl;
-    intList.get(2);
 
+    intList.remove(0);
 
     int size = intList.size();
     std::cout << "Size: " << size << std::endl;
