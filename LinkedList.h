@@ -120,7 +120,7 @@ template <class T>
 LinkedList <T>& LinkedList<T>::operator+=(const T& item)
 {
   theList.push_back(item);
-  return &(this->theList);
+  return *this;
 }
 
 #endif
