@@ -38,50 +38,81 @@ LinkedList::~LinkedList() {}
 template <class T>
 void LinkedList::add(T element)
 {
-  return;
+  theList.push_back(element);
 }
 
 template <class T>
 int LinkedList::size()
 {
-  return 0;
+  return theList.size();
 }
 
 template <class T>
 T LinkedList::get(int index)
 {
-  //if ( index < 0 || theList.size() < index )
-
-  list<T>::const_iterator it = theList.begin();
-
-  while (it != theList.begin() + index )
+  try
   {
-    it++;
+    if ( index < 0 || theList.size() < index )
+    {
+      throw "Out of range";
+    }
+    list<T>::const_iterator it = theList.begin();
+
+    while (it != theList.begin() + index )
+    {
+      it++;
+    }
+    return *it;
   }
-  return *it;
+  catch(char* str)
+  {
+    std::cout << "Incorrect index value" << str << std::endl;
+  }
 
 }
 
 template <class T>
 T LinkedList::remove(int index)
 {
-  list<T>::const_iterator it = theList.begin();
-
-  while (it != theList.begin() + index )
+  try
   {
-    it++;
+    if ( index < 0 || theList.size() < index )
+    {
+      throw "Out of range";
+    }
+    list<T>::iterator it = theList.begin();
+
+    while (it != theList.begin() + index )
+    {
+      it++;
+    }
+    return theList.erase(it);
   }
-  return *it;
+  catch(char* str)
+  {
+    std::cout << "Incorrect index value" << str << std::endl;
+  }
 }
+
 template <class T>
 vector<T> LinkedList::toArray()
 {
   vector<T> returnV();
+  list<T>::const_iterator it = theList.begin();
+
+  while(it != theList.end())
+  {
+    returnV.push_back(it);
+  }
   return returnV;
+
 }
 
 template <class T>
 LinkedList <T>& LinkedList::operator+=(const T& item)
-
+{
+  theList.push_back(*item);
+  return this.theList;
+}
 
 #endif
