@@ -45,7 +45,7 @@ int main ()
     {
        std::cerr << e.what() << std::endl;
     }
-    std::cout <<"\t[Expected: \"Out of range\"]" << std::endl;
+    std::cout <<"\t[Expected: \"Invalid Argument.\"]" << std::endl;
 
     std::cout << "intList.get(-10): ";
     try
@@ -56,7 +56,7 @@ int main ()
     {
        std::cerr << e.what() << std::endl;
     }
-    std::cout <<"\t[Expected: \"Out of range\"]" << std::endl;
+    std::cout <<"\t[Expected: \"Invalid Argument.\"]" << std::endl;
 
     std::cout << "intList.size(): " << intList.size() << "\t[Expected: 2]" << std::endl;
 
@@ -74,11 +74,9 @@ int main ()
     {
        std::cerr << e.what() << std::endl;
     }
-    std::cout <<"\t[Expected: \"Out of range\"]" << std::endl;
-
+    std::cout <<"\t[Expected: \"Invalid Argument.\"]" << std::endl;
 
     std::cout << "-------------------------------------------" << std::endl;
-
     std::cout << "Testing +=: " << std::endl;
 
     std::cout << "intList += 30" << std:: endl;
@@ -117,7 +115,7 @@ int main ()
     {
       std::cout << v1[i] << std::endl;
     }
-    std::cout << "\t[Expected: 20, 44]"<< std::endl;
+    std::cout << "\t[Expected: 20, 30, 10, 0, 44]"<< std::endl;
 
 
 

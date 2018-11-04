@@ -12,6 +12,7 @@
 #include <vector>
 #include <iostream>
 #include <exception>
+#include <iterator>
 
 template <class T>
 class LinkedList
@@ -35,18 +36,19 @@ class LinkedList
      LinkedList<T>& operator+=( const T& item ); // adds an item to the LinkedList
 };
 
-template <class T>                                        // default constructor for LinkedList
+// default constructor for LinkedList
+template <class T>
 LinkedList<T>::LinkedList() {}
 
+// constructor where LinkedList takes another LinkedList as input
 template <class T>
 LinkedList<T>::LinkedList(const LinkedList<T>& other) {
   for (int i = 0; i < other.size(); i ++)
-  {
     this->add(other.get(i));
-  }
-}  // constructor where LinkedList takes another LinkedList as input
+}
 
-template <class T>                                        // destructor for LinkedList
+// destructor for LinkedList
+template <class T>
 LinkedList<T>::~LinkedList() {}
 
 // adds an element T into the LinkedList
@@ -69,12 +71,11 @@ T LinkedList<T>::get(int index) const
 {
   if (!(0 <= index && index < theList.size()))
   {
-    std::string msg = "Invalid argument."; //Index provided needs
-      //to be larger than 0 and smaller than the size of the List. +
-      //Index provided: " + std::to_string(index);
+    std::string msg = "Invalid argument. Index "
+    "provided has to be between 0 and size of the list";
     throw std::out_of_range(msg);
   }
-  auto it = theList.begin();
+  typename std::list<T>::const_iterator it = theList.begin();
   int count = 0;
   while (count < index)
   {
@@ -88,14 +89,13 @@ T LinkedList<T>::get(int index) const
 template <class T>
 T LinkedList<T>::remove(int index)
 {
-
     if (!(0 <= index && index < theList.size()))
     {
       std::string msg = "Invalid parameter";
       throw std::out_of_range(msg);
     }
     T returnValue = this->get(index);
-    auto it = theList.begin();
+    typename std::list<T>::const_iterator it = theList.begin();
     int count = 0;
 
     while (count < index)
@@ -113,7 +113,7 @@ template <class T>
 std::vector<T> LinkedList<T>::toArray() const
 {
   std::vector<T> returnV;
-  auto it = theList.begin();
+  typename std::list<T>::const_iterator it = theList.begin();
 
   while(it != theList.end())
   {
